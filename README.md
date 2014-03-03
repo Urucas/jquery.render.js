@@ -62,7 +62,7 @@ Usage
    */
  
 
-  // As default the container content will be replaced with the .render call
+  // As default the container content will be replaced with the .render call response
   // To avoid this .render extension has a config Object as third param
   // Use append:true if you want to add the content at the end of the container
   // and still keep the content of the container 
