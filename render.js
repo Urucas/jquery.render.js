@@ -9,21 +9,39 @@ try {
 			url:source, 
 			data:[], 
 			success:function(response){
-				el.response = response;
+				html = response;
 			}, 
 			async: false
 		});
-	
-		var html;
-		for(key in data) {
+		
+		var replace = function(key, value, string) {
 			var reg = new RegExp("{%"+key+"}");
-			html = el.response.replace(reg, data[key]);
+			return string.replace(reg, value);
 		}
-		if(config.append) {
+		if(data instanceof Array) {
+			var len = data.length;
+			var aux;
+			for(var i=0; i< len; i++) {
+			
+			}
+		}else if(data instanceof Object) {
+			var aux = html;
+			for(key in data) {
+				aux = replace(key, data[key], aux);
+			}
+		}
+		html = aux;
+
+		if(config.append) 
+		{
 			$(el).append(html);	
-		}else if(config.prepend) {
+		}
+		else if(config.prepend) 
+		{
 			$(el).prepend(html);	
-		}else{
+		}
+		else
+		{
 			$(el).html(html);	
 		}
 
