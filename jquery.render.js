@@ -81,3 +81,31 @@ try {
 }catch(e) {
 	console.log("jQuery is not defined, make sure to include the jquery library before including JQuery render extension");
 }
+
+try {
+
+	jQuery.fn.include = function(view, callback) {
+		var el = this;
+		$(el).load(view, function(){
+			$(el).find("include").each(function(){
+				var inc = this.getAttribute("src");
+				var oel = this;
+				$.ajax({
+					url:inc,
+					data:[],
+					async:false,
+					success: function(data){
+						$(oel).replaceWith(data);					
+					}
+				});
+			});
+		});
+		if(callback!= undefined && callback instanceof Function) {
+			callback();
+		}
+		return this;
+	}
+
+}catch(e) {
+	console.log(e);
+}
