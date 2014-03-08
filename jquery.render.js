@@ -95,14 +95,16 @@ try {
 					data:[],
 					async:false,
 					success: function(data){
-						$(oel).replaceWith(data);					
+						$(oel).replaceWith(data);	
+
+						if(callback!= undefined && callback instanceof Function) {
+							callback();
+						}
 					}
 				});
 			});
 		});
-		if(callback!= undefined && callback instanceof Function) {
-			callback();
-		}
+
 		return this;
 	}
 
