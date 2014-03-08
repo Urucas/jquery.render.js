@@ -97,12 +97,12 @@ try {
 					success: function(data){
 						$(oel).replaceWith(data);	
 
-						if(callback!= undefined && callback instanceof Function) {
-							callback();
-						}
 					}
 				});
 			});
+			if(callback!= undefined && callback instanceof Function) {
+				callback();
+			}
 		});
 
 		return this;
