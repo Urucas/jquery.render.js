@@ -98,3 +98,101 @@ Usage
    */
 
 ```
+.include
+=======
+
+``` javascript
+
+    // .include function will load your html in wrapper container as native jquery.load method
+    // but also loading <include tags on the final html, replacing it element with the source seted
+    // as src attribute.
+    
+    // Include tag: <include src="other.html" />
+    
+    // For example; 
+    // cartelera.html 
+    /*
+     * <include src="menu.html" />
+     * <div id="general">
+     * <!-- HEADER -->
+     *      <div id="header">
+     *   	<div id="btn-menu"><a onclick="toggle('menu')"><img src="images/btn-menu.png"></a></div>
+     *   	<div id="btn-config"><a href="#configuracion"><img src="images/btn-config.png"></a></div>
+     *   	<div id="titulo"><img src="images/titu-cartelera.png"></div>
+     *       </div>
+     * <include src="search-bar.html" />
+     *  <!-- LISTADO -->
+     *   <div id="cartelera">
+     *       <div class="loading"><img src="images/loading.gif" width="25">&nbsp;&nbsp; Cargando contenido ...</div>
+     *   </div>
+     * </div>
+     *
+     /
+     
+     // menu.html 
+     /*
+      * <div id="menu">
+      *	    <a href="#recomendados"><div class="btn-izq recomendados"><img src="images/ico-recomendados.png"></div></a>
+      *	    <a href="#estrenos"><div class="btn-izq estrenos"><img src="images/ico-estrenos.png"></div></a>
+      *	    <a href="#cartelera"><div class="btn-izq cartelera"><img src="images/ico-cartelera.png"></div></a>
+      *	    <a href="#cines"><div class="btn-izq cines"><img src="images/ico-cines.png"></div></a>
+      * </div>
+      */
+     
+     // search-bar.html
+     /*
+      * <div id="buscador">
+      *	    <div id="blanco">
+      *         <div id="campo"><input id="field" value="" title="Titulo, actor, cine, etc" class="element2hint" type="text"></div>
+      *	        <div id="btn-buscar"><a onclick="app.loadSearch();"><img src="images/btn-buscar.png"></a></div>
+      *	    </div>
+      *	</div>
+      * <div class="sombra-int"><img src="images/sombra.png" width="100%" height="10"></div>
+      * <script>
+      *    $(".element2hint").hint();
+      *    $(".element2hint").enterKey(function(value){
+      *        app.loadSearch();
+      *    });
+      * </script>
+      */
+ 
+      $("#wrapper").include("cartelera.html", function(){ console.log("Html loaded with include"); });
+      // Result 
+    /*
+     * <div id="menu">
+     *	    <a href="#recomendados"><div class="btn-izq recomendados"><img src="images/ico-recomendados.png"></div></a>
+     *	    <a href="#estrenos"><div class="btn-izq estrenos"><img src="images/ico-estrenos.png"></div></a>
+     *	    <a href="#cartelera"><div class="btn-izq cartelera"><img src="images/ico-cartelera.png"></div></a>
+     *	    <a href="#cines"><div class="btn-izq cines"><img src="images/ico-cines.png"></div></a>
+     * </div>
+     * <div id="general">
+     * <!-- HEADER -->
+     *      <div id="header">
+     *   	<div id="btn-menu"><a onclick="toggle('menu')"><img src="images/btn-menu.png"></a></div>
+     *   	<div id="btn-config"><a href="#configuracion"><img src="images/btn-config.png"></a></div>
+     *   	<div id="titulo"><img src="images/titu-cartelera.png"></div>
+     *       </div>
+     /*
+      * <div id="buscador">
+      *	    <div id="blanco">
+      *         <div id="campo"><input id="field" value="" title="Titulo, actor, cine, etc" class="element2hint" type="text"></div>
+      *	        <div id="btn-buscar"><a onclick="app.loadSearch();"><img src="images/btn-buscar.png"></a></div>
+      *	    </div>
+      *	</div>
+      * <div class="sombra-int"><img src="images/sombra.png" width="100%" height="10"></div>
+      * <script>
+      *    $(".element2hint").hint();
+      *    $(".element2hint").enterKey(function(value){
+      *        app.loadSearch();
+      *    });
+      * </script>
+      *
+      *  <!-- LISTADO -->
+      *   <div id="cartelera">
+      *       <div class="loading"><img src="images/loading.gif" width="25">&nbsp;&nbsp; Cargando contenido ...</div>
+      *   </div>
+      * </div>
+      */
+    
+```
+
