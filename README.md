@@ -72,5 +72,29 @@ Usage
   // and still keep the content of the container 
   $("#wrapper-list").render("movie-list-item.html", movies, {prepend:true});
   
+  
+  // Add modifiers feature, set modifiers var to config param,
+  // This way you can to modify the final value you want to put in the rendered html
+  
+  // For example;
+  // Cut the titulo var into 10 characters max and add "..."
+  // Add "%" to votos var
+  var modifiers = {
+	  titulo: function(s){ return s.length > 10 ? s.substr(0,7)+"..." : s; },
+	  votos: function(s) { return s+"%"; }
+	}
+  ("#wrapper-list").render("movie-list-item.html", movies, {modifiers:modifiers});
+  
+  // Result
+  /*
+   * <div class="peli">
+   *    <a onclick="app.loadMovie(2)">
+   *	      <div class="thumb"><img src="images/peli2.jpg"></div>
+   *	      <div class="titulo">El homb...</div>
+   *        <div class="votos">80%</div>
+   *	      <div class="votos">un día, sin pistas ni huellas, Eugenio d...</div>
+   *    </a>
+   * </div>
+   */
 
 ```
