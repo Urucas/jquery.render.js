@@ -26,7 +26,7 @@ try {
 
 			// create replace function
 			var replace = function(key, value, str, modifier) {
-				var reg = new RegExp("{%"+key+"}");
+				var reg = new RegExp("{%"+key+"}","g");
 				try {
 					if(modifier != undefined && modifier instanceof Function) {
 						value = modifier(value);
