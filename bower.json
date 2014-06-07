@@ -1,0 +1,27 @@
+{
+  "name": "jquery.render.js",
+  "main": "jquery.render.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Urucas/jquery.render.js",
+  "authors": [
+    "Urucas <hello@urucas.com>"
+  ],
+  "description": "jquery .render extension",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "jquery",
+    "js",
+    "javascript",
+    "template"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
